@@ -1,0 +1,74 @@
+Week 5
+calculator.html (Learning JS) -
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<table border="1">
+<tr>
+<td colspan="4">
+<input type="text" id="inputBox" value="0"/>
+</td>
+</tr>
+<tr>
+<td onclick="digitBtnPressed(7) ">7</td>
+<td onclick="digitBtnPressed(8)">8</td>
+<td onclick="digitBtnPressed(9)">9</td>
+<td  onclick="operatorBtnPressed('*')">x</td>
+</tr>
+<tr>
+<td onclick="digitBtnPressed(4)">4</td>
+<td onclick="digitBtnPressed(5)">5</td>
+<td onclick="digitBtnPressed(6)">6</td>
+<td>-</td>
+</tr>
+<tr>
+<td onclick="digitBtnPressed(1)">1</td>
+<td onclick="digitBtnPressed(2) ">2</td>
+<td onclick="digitBtnPressed(3) ">3</td>
+<td onclick="operatorBtnPressed('+')">+</td>
+</tr>
+<tr>
+<td colspan="2" onclick="digitBtnPressed(0)">0</td>
+
+<td onclick="btnACPressed()">AC</td>
+<td
+onclick="operatorBtnPressed('/')">/</td>
+</tr>
+<tr>
+<td colspan="4">=</td>
+</tr>
+</table>
+<script>
+var newLine = true; //Boolean variable. Determines if the next thing the user types should be on a new line
+var value1;
+var currentOperator;
+
+//Event handler for when any digit button is pressed
+function digitBtnPressed (button){
+    if(newLine){
+document.getElementById("inputBox").value = button;
+newLine = false;    
+} else {
+        var currentValue = document.getElementById("inputBox").value;
+document.getElementById("inputBox").value = currentValue + button;
+}
+}
+
+//Event handler for when the AC button is pressed
+function btnACPressed(){
+document.getElementById("inputBox").value = 0;
+newLine = true;
+}
+
+function operatorBtnPressed(operator){
+currentOperator = operator;
+value1 = parseInt(document.getElementById("inputBox").value);
+newLine = true;
+
+}
+
+</script>
+</body>
+</html>
