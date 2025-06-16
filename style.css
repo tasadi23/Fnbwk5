@@ -1,27 +1,12 @@
-<html>
-<head>
-   <link rel="stylesheet" type="text/css" href="style.css">
-</head> 
-<body>
-<p id="outputText"></p>
-<script>
-var text1 = "10";
-var text2 = "2";
-
-var numl = stringToNumber (text1);
-var num2 = stringToNumber (text2);
-
-document.getElementById("outputText").innerHTML = num1 + num2;
-
-if(isNaN(numl) || isNaN (num2) ){
-document.getElementById("outputText").innerHTML = "You have not entered a valid number. Please try again. "; 
-} else{
-document.getElementById("outputText").innerHTML = numl / num2 ;
-}
-
-function stringToNumber(text) {
-return parseInt(text);
-
+body {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+margin: 0;
+font-family: Arial, sans-serif;
+background-color: #f0f0f0;
 }
 
 table{
@@ -29,6 +14,10 @@ color: #fff;
 text-align: center;
 border-collapse: collapse;
 font: normal 3em Arial, Helvetica, sans-serif;
+background-color: #333;
+border-radius: 10px;
+padding: 10px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 tr{
@@ -39,26 +28,43 @@ background-color: #4e494d;
 td{
 width: 25vw;
 border: 1px solid #4e494d;
+border-radius: 5px;
+cursor: pointer;
 }
 
 #inputBox{
-background-color: #4e494d; 
+background-color: #4e494d;
 text-align: right;
-width: 100%; 
+width: 100%;
 font-size: 2em;
-color: #fff; 
+color: #fff;
 border: 0px;
+box-sizing: border-box;
+padding: 10px;
+border-radius: 5px;
 }
 
-•digitButton{ 
-   background-color: #807e80;
+.digitButton{
+background-color: #807e80;
 }
-• operatorButton{ 
-   background-color: #ff9e06;
+.digitButton:hover {
+background-color: #908e90;
 }
-•ACButton{
+.operatorButton{
+background-color: #ff9e06;
+}
+.operatorButton:hover {
+background-color: #ffad33;
+}
+.ACButton{
 background-color: #656165;
 }
-</script>
-</body>
-</html>
+.ACButton:hover {
+background-color: #757575;
+}
+
+#outputText {
+margin-bottom: 20px;
+font-size: 18px;
+color: #333;
+}
