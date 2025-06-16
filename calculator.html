@@ -1,6 +1,6 @@
 <html>
 <head>
-   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head> 
 <body>
 <p id="outputText"></p>
@@ -38,65 +38,39 @@
 </tr>
 </table>
 <script>
-// JavaScript from your second code
-var text1 = "10";
-var text2 = "2";
-
-var num1 = stringToNumber (text1);
-var num2 = stringToNumber (text2);
-
-document.getElementById("outputText").innerHTML = num1 + num2;
-
-if(isNaN(num1) || isNaN (num2) ){
-document.getElementById("outputText").innerHTML = "You have not entered a valid number. Please try again. "; 
-} else{
-document.getElementById("outputText").innerHTML = num1 / num2 ;
-}
-
-function stringToNumber(text) {
-return parseInt(text);
-}
-
-// JavaScript from your first calculator code
 var newLine = true; //Boolean variable. Determines if the next thing the user types should be on a new line
 var value1;
 var currentOperator;
-
 //Event handler for when any digit button is pressed
 function digitBtnPressed (button){
-    if(newLine){
+   if(newLine){
 document.getElementById("inputBox").value = button;
 newLine = false;    
 } else {
-        var currentValue = document.getElementById("inputBox").value;
+       var currentValue = document.getElementById("inputBox").value;
 document.getElementById("inputBox").value = currentValue + button;
 }
 }
-
 //Event handler for when the AC button is pressed
 function btnACPressed(){
 document.getElementById("inputBox").value = 0;
 newLine = true;
 }
-
 //Event handler for operator buttons
 function operatorBtnPressed(operator){
 currentOperator = operator;
 value1 = parseInt(document.getElementById("inputBox").value);
 newLine = true;
-
 }
-
 //Event handler for equals to button 
 function equalsBtnPressed(){
 var value2 = parseInt(document.getElementById("inputBox").value);
 var finalTotal;
-
 switch(currentOperator){
-    case "+":
-        finalTotal = value1 + value2;
-        break;
-        case "-":
+   case "+":
+       finalTotal = value1 + value2;
+       break;
+       case "-":
 finalTotal = value1 - value2;
 break;
 case "/":
@@ -105,13 +79,10 @@ break;
 case "x":
 finalTotal = value1 * value2;
 break;
-
 }
 document.getElementById("inputBox").value = finalTotal;
-
 value1 = 0;
 newLine= true;
-
 }
 </script>
 </body>
