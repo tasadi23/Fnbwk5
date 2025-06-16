@@ -12,33 +12,32 @@ calculator.html (Learning JS) -
 </td>
 </tr>
 <tr>
-<td onclick="digitBtnPressed(7) ">7</td>
-<td onclick="digitBtnPressed(8)">8</td>
-<td onclick="digitBtnPressed(9)">9</td>
-<td  onclick="operatorBtnPressed('*')">x</td>
+<td class="digitButton" onclick="digitBtnPressed(7) ">7</td>
+<td class="digitButton" onclick="digitBtnPressed(8)">8</td>
+<td class="digitButton" onclick="digitBtnPressed(9)">9</td>
+<td class="operatorButton" onclick="operatorBtnPressed('x')">x</td>
 </tr>
 <tr>
-<td onclick="digitBtnPressed(4)">4</td>
-<td onclick="digitBtnPressed(5)">5</td>
-<td onclick="digitBtnPressed(6)">6</td>
-<td>-</td>
+<td class="digitButton" onclick="digitBtnPressed(4)">4</td>
+<td class="digitButton" onclick="digitBtnPressed(5)">5</td>
+<td class="digitButton" onclick="digitBtnPressed(6)">6</td>
+<td class="operatorButton" onclick="operatorBtnPressed('-')">-</td>
 </tr>
 <tr>
-<td onclick="digitBtnPressed(1)">1</td>
-<td onclick="digitBtnPressed(2) ">2</td>
-<td onclick="digitBtnPressed(3) ">3</td>
-<td onclick="operatorBtnPressed('+')">+</td>
+<td class="digitButton" onclick="digitBtnPressed(1)">1</td>
+<td class="digitButton" onclick="digitBtnPressed(2) ">2</td>
+<td class="digitButton" onclick="digitBtnPressed(3) ">3</td>
+<td class="operatorButton" onclick="operatorBtnPressed('+')">+</td>
 </tr>
 <tr>
-<td colspan="2" onclick="digitBtnPressed(0)">0</td>
+<td class="digitButton" colspan="2" onclick="digitBtnPressed(0)">0</td>
 
-<td onclick="btnACPressed()">AC</td>
-<td
-onclick="operatorBtnPressed('/')">/</td>
+<td class="ACButton" onclick="btnACPressed()">AC</td>
+<td class="operatorButton" onclick="operatorBtnPressed('/')">/</td>
 </tr>
 <tr>
-<td colspan="4">=</td>
-</tr>
+<td class="operatorButton" colspan="4" onclick="equalsBtnPressed()">=</td>
+</tr
 </table>
 <script>
 var newLine = true; //Boolean variable. Determines if the next thing the user types should be on a new line
@@ -62,6 +61,7 @@ document.getElementById("inputBox").value = 0;
 newLine = true;
 }
 
+//Event handler for operator buttons
 function operatorBtnPressed(operator){
 currentOperator = operator;
 value1 = parseInt(document.getElementById("inputBox").value);
@@ -69,6 +69,32 @@ newLine = true;
 
 }
 
+//Event handler for equals to button 
+function equalsBtnPressed(){
+var value2 = parseInt(document.getElementById("inputBox").value);
+var finalTotal;
+
+switch(currentOperator){
+    case "+":
+        finalTotal = value1 + value2;
+        break;
+        case "-":
+finalTotal = valuel - value2;
+break;
+case "/":
+finalTotal = valuel / value2;
+break;
+case "x":
+finalTotal = valuel * value2;
+break;
+
+}
+document.getElementById("inputBox").value = finalTotal;
+
+value = 0;
+newLine= true;
+
+}
 </script>
 </body>
 </html>
